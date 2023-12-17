@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import gsap from "gsap";
 
-const TextSplitter = ({ text }) => {
+const TextSplitter = ({ text, cs }) => {
 	const splitTextRef = useRef([]);
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ const TextSplitter = ({ text }) => {
 		</span>
 	));
 
-	return <div className="text-container font-raleway">{splitText}</div>;
+	return <div className={cs}>{splitText}</div>;
 };
 TextSplitter.propTypes = {
 	text: PropTypes.string.isRequired,

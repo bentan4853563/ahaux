@@ -1,7 +1,7 @@
 import Value from "../components/Value.jsx";
 import ScrollToTop from "react-scroll-to-top";
 import { useRef } from "react";
-// import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import Image1 from "../assets/image/image1.jpg";
@@ -25,10 +25,78 @@ const Landing = () => {
 	const serviceContainer = useRef();
 	const aboutComponent = useRef();
 
+	useGSAP(() => {
+		gsap.from(".service1", {
+			scrollTrigger: ".service1", // start the animation when ".box" enters the viewport (once)
+			x: -500,
+			ease: "power.out",
+			duration: 1,
+		});
+	});
+	useGSAP(() => {
+		gsap.from(".service2", {
+			scrollTrigger: ".service2", // start the animation when ".box" enters the viewport (once)
+			x: 500,
+			ease: "power.out",
+			duration: 1,
+		});
+	});
+	useGSAP(() => {
+		gsap.from(".service3", {
+			scrollTrigger: ".service2", // start the animation when ".box" enters the viewport (once)
+			y: 500,
+			ease: "power.out",
+			duration: 1,
+		});
+	});
+	useGSAP(() => {
+		gsap.from(".mission", {
+			scrollTrigger: ".mission", // start the animation when ".box" enters the viewport (once)
+			x: -1000,
+			ease: "power4.in",
+			duration: 0.5,
+		});
+	});
+
+	useGSAP(() => {
+		gsap.from(".vision", {
+			scrollTrigger: ".vision", // start the animation when ".box" enters the viewport (once)
+			x: 1000,
+			ease: "power4.in",
+			duration: 0.5,
+		});
+	});
+
+	useGSAP(() => {
+		gsap.from(".history1", {
+			scrollTrigger: ".history1", // start the animation when ".box" enters the viewport (once)
+			opacity: 0,
+			ease: "power1.in",
+			duration: 1,
+		});
+	});
+	useGSAP(() => {
+		gsap.from(".history2", {
+			scrollTrigger: ".history2", // start the animation when ".box" enters the viewport (once)
+			opacity: 0,
+			duration: 1.3,
+			ease: "power1.in",
+		});
+	});
+	useGSAP(() => {
+		gsap.from(".history3", {
+			scrollTrigger: ".history3", // start the animation when ".box" enters the viewport (once)
+			opacity: 0,
+			duration: 1.6,
+			ease: "power1.in",
+		});
+	});
+
 	return (
 		<>
 			<Navbar />
-			<div className="content">
+			<div className="content relative">
+				<img className="absolute top-0 w-[100vw] h-[100vh]" />
 				<div
 					id="home"
 					className="flex flex-wrap items-center bg-cover h-[100vh] w-full px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32 xl:px-40 2xl:px-56 relative"
@@ -36,25 +104,18 @@ const Landing = () => {
 						backgroundImage: `url(${Image1})`,
 					}}
 				>
-					<div className="flex flex-col gap-12 items-center text-white z-10 mt-32">
-						<p
-							id="title"
-							className="heding font-bold font-itc text-center text-3xl md:text-4xl lg:text-5xl xl:text:6xl 2xl:text-7xl"
-						>
-							The brain is not a glass to be filled, but a lamp to be lit.
-						</p>
-						{/* <p className="text-center text-lg lg:text-xl 2xl:text-2xl text-gray-400">
-							We are a technology company focused on Block chain and AI – our
-							mission is to help clients like you build custom end-to-end
-							solutions that solve real-world problems and deliver meaningful
-							results.
-						</p> */}
+					<div className="flex flex-col w-full gap-12 items-center text-white z-10 mt-32">
+						<TextSplitter
+							text="The brain is not a glass to be filled, but a lamp to be lit."
+							cs="font-bold w-full font-itc text-center text-3xl md:text-4xl lg:text-5xl xl:text:6xl 2xl:text-7xl"
+						/>
 						<div className="text-center text-lg lg:text-xl 2xl:text-2xl text-white">
 							<TextSplitter
 								text="We are a technology company focused on Block chain and AI – our
 							mission is to help clients like you build custom end-to-end
 							solutions that solve real-world problems and deliver meaningful
 							results."
+								cs="font-raleway"
 							/>
 						</div>
 						<a className="startButton border border-white  text-white text-xl hover:scale-110 transform duration-200 cursor-pointer  px-16 py-3 rounded-full mt-48">
@@ -195,16 +256,17 @@ const Landing = () => {
 					<hr />
 					<div
 						id="values"
-						className="flex flex-col items-center bg-cover w-full px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32 xl:px-40 2xl:px-56 py-16 lg:py-24 gap-6 lg:gap-12 relative"
+						className="flex flex-col bg-transparent bg-fixed items-center bg-cover w-full px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32 xl:px-40 2xl:px-56 py-16 lg:py-24 gap-6 lg:gap-12 relative"
 						style={{
 							backgroundImage: `url(${Image5})`,
 						}}
 					>
 						<div className="w-full h-full bg-gray-600 opacity-80 absolute top-0 left-0 z-0"></div>
+						{/* <img src={Image5} className="bg-fixed" /> */}
 						<p className="text-white font-bold text-center text-5xl xl:text:6xl 2xl:text-6xl font-itc z-10">
 							Our Values
 						</p>
-						<div className="w-full flex flex-wrap items-center justify-center md:justify-start text-stone-800 text-lg md:text-xl lg:text-2xl 2xl:text-3xl lg:text-bold z-10">
+						<div className="values w-full flex flex-wrap items-center justify-center md:justify-start text-stone-800 text-lg md:text-xl lg:text-2xl 2xl:text-3xl lg:text-bold z-10">
 							<Value content="Passion" />
 							<Value content="Determination" />
 							<Value content="Personal Development" />
@@ -232,7 +294,7 @@ const Landing = () => {
 						and revoluAonary things to support development and create opp
 					</p>
 					<div className="flex flex-col items-center">
-						<div className="py-4 w-full md:4/5 lg:w-full md:pr-16 lg:pr-32">
+						<div className="history1 py-4 w-full md:4/5 lg:w-full md:pr-16 lg:pr-32">
 							<div className="p-8 rounded-lg bg-white shadow-md shadow-gray-500/80 cursor-pointer">
 								<h3 className="text-lg lg:text-2xl font-bold text-gray-800 mb-2">
 									Founded in 2010
@@ -245,7 +307,7 @@ const Landing = () => {
 								</span>
 							</div>
 						</div>
-						<div className="py-4 w-full md:4/5 lg:full md:pl-16 lg:pl-32 cursor-pointer">
+						<div className="history2 py-4 w-full md:4/5 lg:full md:pl-16 lg:pl-32 cursor-pointer">
 							<div className="p-8 rounded-lg bg-white shadow-md shadow-gray-500/80 cursor-pointer">
 								<h3 className="text-lg lg:text-2xl font-bold text-gray-800 mb-2">
 									First Product Launch
@@ -258,7 +320,7 @@ const Landing = () => {
 								</span>
 							</div>
 						</div>
-						<div className="py-4 w-full md:4/5 lg:full md:pr-16 lg:pr-32 cursor-pointer">
+						<div className="history3 py-4 w-full md:4/5 lg:full md:pr-16 lg:pr-32 cursor-pointer">
 							<div className="p-8 rounded-lg bg-white shadow-md shadow-gray-500/80 cursor-pointer">
 								<h3 className="text-lg lg:text-2xl font-bold text-gray-800 mb-2">
 									Significant partnerships or collaborations
