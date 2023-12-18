@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth;
 }
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, ITC Avant Garde Gothic STD, Raleway;
   line-height: 1.5;
   font-weight: 400;
 
@@ -18,4 +18,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: 'itc';
+  src: url(../public/fonts/ITCAvantGardeStd-Bold.otf);
+  font-weight: 700;
+}
 
+@font-face {
+  font-family: 'raleway';
+  src: url(../public/fonts/Raleway-Medium.ttf);
+}

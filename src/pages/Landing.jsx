@@ -52,7 +52,7 @@ const Landing = () => {
 	useGSAP(() => {
 		gsap.from(".mission", {
 			scrollTrigger: ".mission", // start the animation when ".box" enters the viewport (once)
-			x: -1000,
+			x: -100,
 			ease: "power4.in",
 			duration: 0.5,
 		});
@@ -61,7 +61,7 @@ const Landing = () => {
 	useGSAP(() => {
 		gsap.from(".vision", {
 			scrollTrigger: ".vision", // start the animation when ".box" enters the viewport (once)
-			x: 1000,
+			x: 100,
 			ease: "power4.in",
 			duration: 0.5,
 		});
